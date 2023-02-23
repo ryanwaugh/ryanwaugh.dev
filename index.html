@@ -8,9 +8,16 @@
 </head>
 <body>
     <a-scene>
+        <a-assets>
+            <a-asset-item id="golf_club" src="/models/grey_putter.gltf"></a-asset-item>
+        </a-assets>
+        <a-entity gltf-model="#golf_club"
+                position="0 2 -2"
+                rotation="125 100 70"
+                scale="0.5 0.5 0.5"></a-entity>
         <a-text value="Welcome to Ryan's Landing Page!"
-                position="-1.5 2 -2"
-                rotation="0 15 0"
+                position="-1.5 2.5 -2"
+                rotation="0 10 0"
                 color="#1b694f"></a-text>
         <a-entity environment="preset: forest;
                 ground: hills;
