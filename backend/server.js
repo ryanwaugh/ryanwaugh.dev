@@ -10,7 +10,9 @@ const express = require('express'),
       https = require('https'),
       fs = require('fs'),
       helmet = require("helmet"),
-      compression = require('compression')
+      compression = require('compression'),
+      subdomain = require('express-subdomain'),
+      xr_subdomain = require('./subdomains/xr/xr')
 
 const app = express(); // Create the express app
 
@@ -34,6 +36,7 @@ app.use(helmet({
 //--------------------------------------//
 //               ROUTING                //
 //--------------------------------------//
+app.use(subdomain('xr', xr_subdomain));
 app.use(express.static(path.join(__dirname, '..', 'frontend'))); // Deliver everything in the frontend directory as a static file
 
 // For any other GET requests, send a 404 page
@@ -46,20 +49,14 @@ app.get('*', (req, res) => {
 //--------------------------------------//
 //        STARTING THE SERVER           //
 //--------------------------------------//
-
-// Create either a HTTPS or HTTP server
-let server, port;
-if (process.env.NODE_ENV === 'production') {
-	const credentials = { // SSL certificate
-		key: fs.readFileSync(process.env.SSL_PRIVATE_KEY),
-		cert: fs.readFileSync(process.env.SSL_CERT)
-	}
-	server = https.createServer(credentials, app);
-	port = process.env.PORT_PROD;
-} else {
-	server = http.createServer(app);
-	port = process.env.PORT_DEV;
+const credentials = { // SSL certificate
+    key: fs.readFileSync(process.env.SSL_PRIVATE_KEY),
+    cert: fs.readFileSync(process.env.SSL_CERT)
 }
+
+const server = https.createServer(credentials, app);
+const port = process.env.PORT_PROD;
+
 
 // Listen on a specific port
 server.listen(port, () => {
