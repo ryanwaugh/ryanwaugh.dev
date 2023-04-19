@@ -1,5 +1,3 @@
-// This is the starting point of your server
-
 //--------------------------------------//
 //     IMPORTING REQUIRED PACKAGES      //
 //--------------------------------------//
@@ -32,16 +30,20 @@ app.use(helmet({
 
 
 
-
 //--------------------------------------//
 //               ROUTING                //
 //--------------------------------------//
 app.use(subdomain('xr', xr_subdomain));
-app.use(express.static(path.join(__dirname, '..', 'frontend'))); // Deliver everything in the frontend directory as a static file
+// Deliver everything in the /frontend folder as a static file
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '../frontend/index.html'));
+  });
 
 // For any other GET requests, send a 404 page
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '..', 'frontend', '404.html'));
+	res.sendFile(path.join(__dirname, '../frontend/404.html'));
 });
 
 
@@ -56,7 +58,6 @@ const credentials = { // SSL certificate
 
 const server = https.createServer(credentials, app);
 const port = process.env.PORT_PROD;
-
 
 // Listen on a specific port
 server.listen(port, () => {
