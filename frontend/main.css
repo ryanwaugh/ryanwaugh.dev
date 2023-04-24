@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+	background-color: #000;
+	color: #fff;
+	font-family: Monospace;
+	font-size: 13px;
+	line-height: 24px;
+	overscroll-behavior: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#three {
+	color: #1AD395;
+}
+
+#xr {
+    color: #D31A58;
+}
+
+#aframe {
+    color: #39E7AD;
+}
+
+#info {
+	position: absolute;
+    top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
