@@ -22,17 +22,35 @@ a:hover {
 
 #xr {
     color: #D31A58;
+	font-size: 16px;
 }
 
 #aframe {
     color: #39E7AD;
 }
 
+#git {
+	color: #D31A58;
+}
+
+#welcome {
+	font-size: 20px;
+}
+
 #info {
 	position: absolute;
-    top: 0px;
+    top: 10px;
 	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
 	text-align: center;
+}
+
+#links {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: right;
 }
