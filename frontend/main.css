@@ -42,11 +42,14 @@ a:hover {
 	text-align: center;
 }
 
-#links {
+.icon {
 	position: absolute;
+	right: 0px;
 	bottom: 0px;
-	width: 100%;
 	padding: 10px;
-	box-sizing: border-box;
-	text-align: right;
+	transition: .1s ease;
+}
+
+.icon img:hover {
+	transform: scale(1.05);
 }
