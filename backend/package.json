@@ -4,7 +4,7 @@
   "description": "My personal Express.js server",
   "main": "server.js",
   "scripts": {
-    "prod": "cross-env NODE_ENV=production pm2 start server.js --name ryanwaugh.dev --watch --log server.log --time",
+    "prod": "cross-env NODE_ENV=production pm2 start server.js --name ryanwaugh.dev --log server.log --time",
     "dev": "cross-env NODE_ENV=development nodemon server"
   },
   "author": "Ryan Waugh",
