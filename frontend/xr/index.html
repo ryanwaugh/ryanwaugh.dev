@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <title>Ryan's XR Planetarium</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<meta charset="utf-8">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <!-- player spawn platform-->
-      <a-plane position="0 0 0" rotation="-90 0 0" width="4" height="4" color="#4C2B0D"></a-plane>
+      <!-- player spawn platform -->
+      <a-plane  position="0 0 0"
+                rotation="-90 0 0"
+                width="4"
+                height="4"
+                color="#4C2B0D"
+      ></a-plane>
 
       <!-- Credit to NASA: https://svs.gsfc.nasa.gov/3895#media_group_29396 -->
       <a-sky src="../images/starmap_8k.jpg"></a-sky>
 
-      <!-- Welcome message-->
-      <a-text value="welcome to space,\nfriend!\n\n- Capt. Ryan" 
+      <!-- Welcome message -->
+      <a-text value="welcome to space,\nfriend!\n\n- Capt. Ryan"
               position="0 1.5 -2"
               color="#D7ED31"
               align="center"
-              font="exo2bold"></a-text>
+              font="exo2bold"
+      ></a-text>
+
+      <!-- VR Hands -->
+      <a-entity id="leftHand"
+                hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
+      ></a-entity>
+      <a-entity id="rightHand"
+                hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"
+      ></a-entity>
     </a-scene>
   </body>
 </html>
