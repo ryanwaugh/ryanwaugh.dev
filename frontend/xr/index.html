@@ -10,7 +10,7 @@
     <a-scene>
       <!-- Player spawn platform -->
       <a-plane
-        position="0 0 0"
+        position="0 0 20" 
         rotation="-90 0 0"
         width="4"
         height="4"
@@ -22,8 +22,8 @@
 
       <!-- Welcome message -->
       <a-text
-        value="welcome to space,\nfriend!\n\n- Capt. Ryan"
-        position="0 1.5 -2"
+        value="welcome to space,\nfriend!\n- Capt. Ryan"
+        position="0 0.5 18"
         color="#d7ed31"
         align="center"
         font="exo2bold"
@@ -41,15 +41,32 @@
 
       <!-- Planets -->
       <!-- textures credit: https://planetpixelemporium.com/planets.html-->
-      <a-sphere id="sun"      radius="10"   position="-15 1 -5" src="../images/textures/sunmap.jpg"></a-sphere>
-      <a-sphere id="mercury"  radius="0.1"  position="-4  1 -5" src="../images/textures/mercurymap.jpg"></a-sphere>
-      <a-sphere id="venus"    radius="0.25" position="-2  1 -5" src="../images/textures/venusmap.jpg"></a-sphere>
-      <a-sphere id="earth"    radius="0.3"  position="0   1 -5" src="../images/textures/earthlights1k.jpg"></a-sphere>
-      <a-sphere id="mars"     radius="0.15" position="2   1 -5" src="../images/textures/mars_1k_color.jpg"></a-sphere>
-      <a-sphere id="jupiter"  radius="1.5"  position="5   1 -5" src="../images/textures/jupitermap.jpg"></a-sphere>
-      <a-sphere id="saturn"   radius="1"    position="8.5 1 -5" src="../images/textures/saturnmap.jpg"></a-sphere>
-      <a-sphere id="uranus"   radius="0.6"  position="11  1 -5" src="../images/textures/uranusmap.jpg"></a-sphere>
-      <a-sphere id="neptune"  radius="0.5"  position="13  1 -5" src="../images/textures/neptunemap.jpg"></a-sphere>
+      <a-sphere id="sun"      radius="10"   position="0 0 0"    src="../images/textures/sunmap.jpg"></a-sphere>
+
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="mercury"  radius="0.1"  position="0 0 -15" src="../images/textures/mercurymap.jpg"></a-sphere>
+      </a-entity>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="venus"    radius="0.25" position="-20 0 0" src="../images/textures/venusmap.jpg"></a-sphere>
+      </a-entity>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="earth"    radius="0.3"  position="0 0 14" src="../images/textures/earthlights1k.jpg"></a-sphere>
+      </a-entity>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="mars"     radius="0.15" position="20 0 0" src="../images/textures/mars_1k_color.jpg"></a-sphere>
+      </a-entity>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="jupiter"  radius="1.5"  position="0 0 18" src="../images/textures/jupitermap.jpg"></a-sphere>
+      </a-entity>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="saturn"   radius="1"    position="0 0 20" src="../images/textures/saturnmap.jpg"></a-sphere>
+      </a-entity>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="uranus"   radius="0.6"  position="0 0 22" src="../images/textures/uranusmap.jpg"></a-sphere>
+      </a-entity>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
+        <a-sphere id="neptune"  radius="0.5"  position="0 0 24" src="../images/textures/neptunemap.jpg"></a-sphere>
+      </a-entity>
     </a-scene>
   </body>
 </html>
