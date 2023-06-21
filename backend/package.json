@@ -1,23 +1,28 @@
 {
   "name": "ryanwaugh.dev",
   "version": "1.0.0",
-  "description": "My personal Express.js server",
   "main": "server.js",
+  "prettier": {},
   "scripts": {
-    "prod": "cross-env NODE_ENV=production pm2 start server.js --name ryanwaugh.dev --log server.log --time",
+    "build": "npx tsc",
+    "prod": "npm run build && cross-env NODE_ENV=production pm2 start server.js --name ryanwaugh.dev --log server.log --time",
     "dev": "cross-env NODE_ENV=development nodemon server"
   },
   "author": "Ryan Waugh",
   "license": "MIT",
   "dependencies": {
+    "@types/three": "^0.152.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-subdomain": "^1.0.5",
-    "helmet": "^6.0.1"
+    "helmet": "^7.0.0",
+    "three": "^0.153.0",
+    "typescript": "^5.1.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.22",
+    "prettier": "2.8.8"
   }
 }
