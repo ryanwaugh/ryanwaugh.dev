@@ -5,7 +5,5 @@
     "removeComments": true,
     "preserveConstEnums": true
   },
-  "files": [
-    "frontend/scripts/main.ts"
-  ]
+  "files": ["frontend/scripts/main.ts"]
 }
