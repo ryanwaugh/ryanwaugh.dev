@@ -1,6 +1,6 @@
 # From .gitignore
 *.log
-backend/.env
-backend/sslcert
-backend/node_modules
-frontend/scripts/main.js
+.env
+sslcert
+node_modules
+frontend/**/*.js

@@ -1,0 +1,32 @@
+{
+  "name": "ryanwaugh.dev",
+  "version": "1.0.0",
+  "main": "backend/server.js",
+  "prettier": {},
+  "scripts": {
+    "build": "npx tsc",
+    "lint": "eslint . --ext .ts",
+    "check-types": "npx tsc --noEmit",
+    "prod": "npm run build && cross-env NODE_ENV=production pm2 start backend/server.js --name ryanwaugh.dev --log server.log --time",
+    "dev": "cross-env NODE_ENV=development pm2 start backend/server.js --name ryanwaugh.dev --log server.log --time --watch"
+  },
+  "author": "Ryan Waugh",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-subdomain": "^1.0.5",
+    "helmet": "^7.0.0",
+    "three": "^0.152.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.152.1",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.44.0",
+    "prettier": "2.8.8",
+    "typescript": "^5.1.6"
+  }
+}
