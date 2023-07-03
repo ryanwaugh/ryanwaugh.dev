@@ -4,7 +4,6 @@
 require("dotenv").config(); // Load environment variables from the .env file
 const express = require("express"),
   path = require("path"),
-  http = require("http"),
   https = require("https"),
   fs = require("fs"),
   helmet = require("helmet"),
@@ -55,7 +54,7 @@ const credentials = {
 };
 
 const server = https.createServer(credentials, app);
-const port = process.env.PORT_PROD;
+const port = 443;
 
 // Listen on a specific port
 server.listen(port, () => {

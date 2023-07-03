@@ -7,15 +7,14 @@
     "build": "esbuild frontend/scripts/main.ts --minify --outfile=frontend/scripts/main.js",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --check .",
-    "check-types": "npx tsc --noEmit",
-    "prod": "npm run build && cross-env NODE_ENV=production pm2 start backend/server.js --name ryanwaugh.dev --log server.log --time",
-    "dev": "cross-env NODE_ENV=development pm2 start backend/server.js --name ryanwaugh.dev --watch"
+    "check-types": "tsc --noEmit",
+    "prod": "npm run build && pm2 start backend/server.js --name ryanwaugh.dev --log server.log --time",
+    "dev": "pm2-dev backend/server.js"
   },
   "author": "Ryan Waugh",
   "license": "MIT",
   "dependencies": {
     "compression": "^1.7.4",
-    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "esbuild": "0.18.11",
     "express": "^4.18.2",
