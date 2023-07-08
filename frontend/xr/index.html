@@ -1,74 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Ryan's XR Planetarium</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-		<meta charset="utf-8">
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/aframe@1.4.2/dist/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.2/dist/aframe.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script> -->
   </head>
   <body>
     <a-scene>
-      <!-- Skybox texture credit NASA: https://svs.gsfc.nasa.gov/3895#media_group_29396 -->
-      <a-sky src="../images/textures/starmap_8k.jpg"></a-sky>
+      <!-- Skybox -->
+      <!-- texture credit Solar System Scope: https://www.solarsystemscope.com/textures/ -->
+      <a-sky src="../images/textures/stars_8k.jpg"></a-sky>
 
       <!-- Welcome message -->
       <a-text
-        value="welcome to space,\nfriend!\n- Capt. Ryan" position="0 0.5 16"
-        color="#d7ed31" align="center" font="exo2bold"></a-text>
+        value="welcome to space,\nfriend!\n- Capt. Ryan"
+        position="0 0.5 16"
+        color="#d7ed31"
+        align="center"
+        font="exo2bold"
+      ></a-text>
 
       <!-- Player entity-->
       <a-entity id="rig" movement-controls position="25 0 25">
-        <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true"></a-entity>
-        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        <a-entity
+          camera
+          position="0 1.6 0"
+          look-controls="pointerLockEnabled: true"
+        ></a-entity>
+        <a-entity
+          id="leftHand"
+          hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
+        ></a-entity>
+        <a-entity
+          id="rightHand"
+          hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"
+        ></a-entity>
+      </a-entity>
+
+      <!-- Sun -->
+      <!-- texture credit Solar System Scope: https://www.solarsystemscope.com/textures/ -->
+      <a-entity id="sun">
+        <a-text
+          value="Sun"
+          align="center"
+          side="double"
+          width="20"
+          position="0 15 0"
+        ></a-text>
+        <a-sphere
+          radius="10"
+          material="src: ../images/textures/sun_2k.jpg"
+        ></a-sphere>
       </a-entity>
 
       <!-- Planets -->
       <!-- textures credit: https://planetpixelemporium.com/planets.html-->
-      <a-entity id="sun">
-        <a-text value="Sun" align="center" side="double" width="20" position="0 15 0"></a-text>
-        <a-sphere radius="10" material="src: ../images/textures/sunmap.jpg" animation="property: rotation; to: 360 360 360; dur: 100000; loop: true"></a-sphere>
-      </a-entity>
 
-      <a-entity id="mercury" animation="property: rotation; to: 0 360 0; loop: true; dur: 90000">
-        <a-text value="Mercury" position="0 1 -20" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="0.1" position="0 0 -20" src="../images/textures/mercurymap.jpg"></a-sphere>
+      <!-- Mercury -->
+      <a-entity
+        id="mercury"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 90000"
+      >
+        <a-text
+          value="Mercury"
+          position="0 1 -20"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="0.1"
+          position="0 0 -20"
+          src="../images/textures/mercury_1k.jpg"
+        ></a-sphere>
       </a-entity>
-
-      <a-entity id="venus" animation="property: rotation; to: 0 360 0; loop: true; dur: 90000">
-        <a-text value="Venus" position="-30 1 0" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="0.25" position="-30 0 0" src="../images/textures/venusmap.jpg"></a-sphere>
+      <!-- Venus -->
+      <a-entity
+        id="venus"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 90000"
+      >
+        <a-text
+          value="Venus"
+          position="-30 1 0"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="0.25"
+          position="-30 0 0"
+          src="../images/textures/venus_1k.jpg"
+        ></a-sphere>
       </a-entity>
-
-      <a-entity id="earth" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
-        <a-text value="Earth" position="0 1 40" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="0.3" position="0 0 40" src="../images/textures/earthlights1k.jpg"></a-sphere>
+      <!-- Earth -->
+      <a-entity
+        id="earth"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 50000"
+      >
+        <a-text
+          value="Earth"
+          position="0 1 40"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="0.3"
+          position="0 0 40"
+          src="../images/textures/earth_1k.jpg"
+        ></a-sphere>
       </a-entity>
-
-      <a-entity id="mars" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
-        <a-text value="Mars" position="50 1 0" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="0.15" position="50 0 0" src="../images/textures/mars_1k_color.jpg"></a-sphere>
+      <!-- Mars -->
+      <a-entity
+        id="mars"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 50000"
+      >
+        <a-text
+          value="Mars"
+          position="50 1 0"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="0.15"
+          position="50 0 0"
+          src="../images/textures/mars_1k.jpg"
+        ></a-sphere>
       </a-entity>
-
-      <a-entity id="jupiter" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
-        <a-text value="Jupiter" position="0 3 -60" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="1.5" position="0 0 -60" src="../images/textures/jupitermap.jpg"></a-sphere>
+      <!-- Jupiter -->
+      <a-entity
+        id="jupiter"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 50000"
+      >
+        <a-text
+          value="Jupiter"
+          position="0 3 -60"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="1.5"
+          position="0 0 -60"
+          src="../images/textures/jupiter_1k.jpg"
+        ></a-sphere>
       </a-entity>
-
-      <a-entity id="saturn" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
-        <a-text value="Saturn" position="-80 2 0" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="1" position="-80 0 0" src="../images/textures/saturnmap.jpg"></a-sphere>
+      <!-- Saturn -->
+      <a-entity
+        id="saturn"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 50000"
+      >
+        <a-text
+          value="Saturn"
+          position="-80 2 0"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="1"
+          position="-80 0 0"
+          src="../images/textures/saturn_1k.jpg"
+        ></a-sphere>
       </a-entity>
-
-      <a-entity id="Uranus" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
-        <a-text value="Uranus" position="0 1 100" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="0.6" position="0 0 100" src="../images/textures/uranusmap.jpg"></a-sphere>
+      <!-- Uranus -->
+      <a-entity
+        id="Uranus"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 50000"
+      >
+        <a-text
+          value="Uranus"
+          position="0 1 100"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="0.6"
+          position="0 0 100"
+          src="../images/textures/uranus_1k.jpg"
+        ></a-sphere>
       </a-entity>
-
-      <a-entity id="Neptune" animation="property: rotation; to: 0 360 0; loop: true; dur: 50000">
-        <a-text value="Neptune" position="120 0 1" color="#fcfcfc" align="center" side="double"></a-text>
-        <a-sphere radius="0.5" position="120 0 0" src="../images/textures/neptunemap.jpg"></a-sphere>
+      <!-- Neptune -->
+      <a-entity
+        id="Neptune"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 50000"
+      >
+        <a-text
+          value="Neptune"
+          position="120 0 1"
+          color="#fcfcfc"
+          align="center"
+          side="double"
+        ></a-text>
+        <a-sphere
+          radius="0.5"
+          position="120 0 0"
+          src="../images/textures/neptune_1k.jpg"
+        ></a-sphere>
       </a-entity>
     </a-scene>
   </body>

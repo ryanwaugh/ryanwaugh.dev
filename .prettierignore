@@ -1,5 +1,7 @@
+# From .gitignore
 *.log
 .env
 sslcert
 node_modules
 frontend/**/*.js
+package-lock.json

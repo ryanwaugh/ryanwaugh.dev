@@ -1,12 +1,12 @@
 # [ryanwaugh.dev](https://ryanwaugh.dev)
 
-My personal website - a homepage for any projects I might be working on. 
+My personal website - a homepage for any projects I might be working on.
 
 - Homepage will (soon) use [Three.js](https://threejs.org/) to render a 3D scene
 
 ## [xr.ryanwaugh.dev](https://xr.ryanwaugh.dev)
 
-***
+---
 
 The future home of my XR experimentation, made with [A-Frame](https://github.com/aframevr/aframe/)
 
