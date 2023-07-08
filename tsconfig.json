@@ -4,9 +4,13 @@
     "esModuleInterop": true,
     "target": "ES6",
     "moduleResolution": "node",
-    "noImplicitAny": true,
     "removeComments": true,
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "paths": {
+      "three/addons/effects/AsciiEffect.js": [
+        "./node_modules/three/examples/jsm/effects/AsciiEffect.js"
+      ]
+    }
   },
   "files": ["frontend/scripts/main.ts"],
   "lib": ["es2015"]

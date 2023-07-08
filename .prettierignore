@@ -4,3 +4,4 @@
 sslcert
 node_modules
 frontend/**/*.js
+package-lock.json

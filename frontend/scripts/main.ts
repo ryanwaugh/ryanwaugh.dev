@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { AsciiEffect } from "three/addons/effects/AsciiEffect.js";
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
