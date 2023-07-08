@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Ryan's XR Planetarium</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <meta charset="utf-8" />
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe@1.4.2/dist/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.2/dist/aframe.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script> -->
   </head>
   <body>
     <a-scene>
       <!-- Skybox -->
-      <!-- texture credit NASA: https://svs.gsfc.nasa.gov/3895#media_group_29396 -->
-      <a-sky src="../images/textures/starmap_8k.jpg"></a-sky>
+      <!-- texture credit Solar System Scope: https://www.solarsystemscope.com/textures/ -->
+      <a-sky src="../images/textures/stars_8k.jpg"></a-sky>
 
       <!-- Welcome message -->
       <a-text
@@ -39,10 +41,8 @@
         ></a-entity>
       </a-entity>
 
-      <!-- Planets -->
-      <!-- textures credit: https://planetpixelemporium.com/planets.html-->
-
       <!-- Sun -->
+      <!-- texture credit Solar System Scope: https://www.solarsystemscope.com/textures/ -->
       <a-entity id="sun">
         <a-text
           value="Sun"
@@ -53,10 +53,13 @@
         ></a-text>
         <a-sphere
           radius="10"
-          material="src: ../images/textures/sunmap.jpg"
-          animation="property: rotation; to: 360 360 360; dur: 100000; loop: true"
+          material="src: ../images/textures/sun_2k.jpg"
         ></a-sphere>
       </a-entity>
+
+      <!-- Planets -->
+      <!-- textures credit: https://planetpixelemporium.com/planets.html-->
+
       <!-- Mercury -->
       <a-entity
         id="mercury"
@@ -72,7 +75,7 @@
         <a-sphere
           radius="0.1"
           position="0 0 -20"
-          src="../images/textures/mercurymap.jpg"
+          src="../images/textures/mercury_1k.jpg"
         ></a-sphere>
       </a-entity>
       <!-- Venus -->
@@ -90,7 +93,7 @@
         <a-sphere
           radius="0.25"
           position="-30 0 0"
-          src="../images/textures/venusmap.jpg"
+          src="../images/textures/venus_1k.jpg"
         ></a-sphere>
       </a-entity>
       <!-- Earth -->
@@ -108,7 +111,7 @@
         <a-sphere
           radius="0.3"
           position="0 0 40"
-          src="../images/textures/earthlights1k.jpg"
+          src="../images/textures/earth_1k.jpg"
         ></a-sphere>
       </a-entity>
       <!-- Mars -->
@@ -126,7 +129,7 @@
         <a-sphere
           radius="0.15"
           position="50 0 0"
-          src="../images/textures/mars_1k_color.jpg"
+          src="../images/textures/mars_1k.jpg"
         ></a-sphere>
       </a-entity>
       <!-- Jupiter -->
@@ -144,7 +147,7 @@
         <a-sphere
           radius="1.5"
           position="0 0 -60"
-          src="../images/textures/jupitermap.jpg"
+          src="../images/textures/jupiter_1k.jpg"
         ></a-sphere>
       </a-entity>
       <!-- Saturn -->
@@ -162,7 +165,7 @@
         <a-sphere
           radius="1"
           position="-80 0 0"
-          src="../images/textures/saturnmap.jpg"
+          src="../images/textures/saturn_1k.jpg"
         ></a-sphere>
       </a-entity>
       <!-- Uranus -->
@@ -180,7 +183,7 @@
         <a-sphere
           radius="0.6"
           position="0 0 100"
-          src="../images/textures/uranusmap.jpg"
+          src="../images/textures/uranus_1k.jpg"
         ></a-sphere>
       </a-entity>
       <!-- Neptune -->
@@ -198,7 +201,7 @@
         <a-sphere
           radius="0.5"
           position="120 0 0"
-          src="../images/textures/neptunemap.jpg"
+          src="../images/textures/neptune_1k.jpg"
         ></a-sphere>
       </a-entity>
     </a-scene>

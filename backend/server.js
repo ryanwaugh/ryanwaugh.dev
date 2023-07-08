@@ -25,7 +25,7 @@ app.use(
     crossOriginOpenerPolicy: false,
     crossOriginResourcePolicy: { policy: "cross-origin" },
     crossOriginEmbedderPolicy: false,
-  })
+  }),
 );
 
 //--------------------------------------//
