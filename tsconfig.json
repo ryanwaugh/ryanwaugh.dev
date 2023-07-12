@@ -5,10 +5,11 @@
     "target": "ES6",
     "moduleResolution": "node",
     "removeComments": true,
+    "noImplicitAny": true,
     "preserveConstEnums": true,
     "paths": {
       "three/addons/effects/AsciiEffect.js": [
-        "./node_modules/three/examples/jsm/effects/AsciiEffect.js"
+        "./node_modules/@types/three/examples/jsm/effects/AsciiEffect.d.ts"
       ]
     }
   },

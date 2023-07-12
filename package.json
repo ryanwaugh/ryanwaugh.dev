@@ -4,7 +4,7 @@
   "main": "backend/server.js",
   "prettier": {},
   "scripts": {
-    "build": "esbuild frontend/scripts/main.ts --bundle --minify --outfile=frontend/scripts/main.js",
+    "build": "ebuild frontend/scripts/main.ts --bundle --minify --outfile=frontend/scripts/main.js",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --check .",
     "check-types": "tsc --noEmit",
@@ -20,12 +20,12 @@
     "express": "^4.18.2",
     "express-subdomain": "^1.0.5",
     "helmet": "^7.0.0",
-    "three": "0.153.0"
+    "three": "^0.154.0"
   },
   "devDependencies": {
-    "@types/three": "0.153.0",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
+    "@types/three": "^0.154.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.44.0",
     "prettier": "3.0.0",
     "typescript": "^5.1.6"
