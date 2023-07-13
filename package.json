@@ -4,7 +4,7 @@
   "main": "backend/server.js",
   "prettier": {},
   "scripts": {
-    "build": "ebuild frontend/scripts/main.ts --bundle --minify --outfile=frontend/scripts/main.js",
+    "build": "node esbuild.mjs",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --check .",
     "check-types": "tsc --noEmit",
