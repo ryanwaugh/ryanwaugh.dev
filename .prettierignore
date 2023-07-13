@@ -1,7 +1,10 @@
-# From .gitignore
-*.log
+## From .gitignore
+server.log
 .env
 sslcert
 node_modules
-frontend/**/*.js
+frontend/scripts/main.js
+frontend/main.css
+
+## npm
 package-lock.json

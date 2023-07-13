@@ -1,4 +1,4 @@
-*.log
+server.log
 .env
 sslcert
 node_modules
