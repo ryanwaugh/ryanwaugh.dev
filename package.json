@@ -6,8 +6,9 @@
   "scripts": {
     "build": "node esbuild.mjs",
     "lint": "eslint . --ext .ts",
-    "prettier": "prettier --check .",
-    "check-types": "tsc --noEmit",
+    "pretty": "prettier --check .",
+    "fix": "prettier --write \"**/*\"",
+    "types": "tsc --noEmit",
     "prod": "npm run build && pm2 start ecosystem.config.js",
     "dev": "npm run build && pm2-dev backend/server.js"
   },
@@ -16,7 +17,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "dotenv": "^16.3.1",
-    "esbuild": "0.18.11",
+    "esbuild": "0.18.12",
     "express": "^4.18.2",
     "express-subdomain": "^1.0.5",
     "helmet": "^7.0.0",

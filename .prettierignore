@@ -8,3 +8,10 @@ frontend/main.css
 
 ## npm
 package-lock.json
+
+## By running 'npm fix'
+.gitignore
+.prettierignore
+frontend/images/
+LICENSE
+template.env
