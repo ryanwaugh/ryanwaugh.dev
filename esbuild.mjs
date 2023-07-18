@@ -1,15 +1,22 @@
-import * as esbuild from "esbuild";
+import * as esbuild from 'esbuild';
 
 await esbuild.build({
-  entryPoints: ["src/frontend/scripts/main.ts"],
+  entryPoints: ['src/frontend/scripts/main.ts'],
   bundle: true,
   minify: true,
-  outfile: "frontend/scripts/main.js",
+  outfile: 'frontend/scripts/main.js',
 });
 
 await esbuild.build({
-  entryPoints: ["src/frontend/main.css"],
+  entryPoints: ['src/frontend/scripts/xr.ts'],
   bundle: false,
   minify: true,
-  outfile: "frontend/main.css",
+  outfile: 'frontend/scripts/xr.js',
+});
+
+await esbuild.build({
+  entryPoints: ['src/frontend/main.css'],
+  bundle: false,
+  minify: true,
+  outfile: 'frontend/main.css',
 });

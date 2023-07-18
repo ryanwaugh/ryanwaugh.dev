@@ -1,15 +1,15 @@
 //--------------------------------------//
 //     IMPORTING REQUIRED PACKAGES      //
 //--------------------------------------//
-require("dotenv").config(); // Load environment variables from the .env file
-const express = require("express"),
-  path = require("path"),
-  https = require("https"),
-  fs = require("fs"),
-  helmet = require("helmet"),
-  compression = require("compression"),
-  subdomain = require("express-subdomain"),
-  xr_subdomain = require("./subdomains/xr/xr");
+require('dotenv').config(); // Load environment variables from the .env file
+const express = require('express'),
+  path = require('path'),
+  https = require('https'),
+  fs = require('fs'),
+  helmet = require('helmet'),
+  compression = require('compression'),
+  subdomain = require('express-subdomain'),
+  xr_subdomain = require('./subdomains/xr/xr');
 
 const app = express(); // Create the express app
 
@@ -23,25 +23,25 @@ app.use(
   helmet({
     contentSecurityPolicy: false,
     crossOriginOpenerPolicy: false,
-    crossOriginResourcePolicy: { policy: "cross-origin" },
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
     crossOriginEmbedderPolicy: false,
-  }),
+  })
 );
 
 //--------------------------------------//
 //               ROUTING                //
 //--------------------------------------//
-app.use(subdomain("xr", xr_subdomain));
+app.use(subdomain('xr', xr_subdomain));
 // Deliver everything in the /frontend folder as a static file
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "../frontend/index.html"));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '../frontend/index.html'));
 });
 
 // For any other GET requests, send a 404 page
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/404.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/404.html'));
 });
 
 //--------------------------------------//

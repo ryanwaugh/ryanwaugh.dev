@@ -3,8 +3,8 @@ server.log
 .env
 sslcert
 node_modules
-frontend/scripts/main.js
-frontend/main.css
+frontend/**/*.js
+frontend/**/*.css
 
 ## npm
 package-lock.json
