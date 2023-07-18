@@ -1,15 +1,15 @@
-# [ryanwaugh.dev](https://ryanwaugh.dev)
+# ryanwaugh.dev
 
 My personal website - a homepage for any projects I might be working on.
 
-- Homepage will (soon) use [Three.js](https://threejs.org/) to render a 3D scene
+- [Three.js](https://threejs.org/) renders an animated scene of a spinning torus knot
+  - Three.js 'extra' module provides the ASCII filter for the entire scene
+  - [aframe-extras](https://github.com/c-frame/aframe-extras) `hand-controls` addon allows for Quest 2 controller support (& _touch-to-move_ on mobile)
 
-## [xr.ryanwaugh.dev](https://xr.ryanwaugh.dev)
+## xr.ryanwaugh.dev
 
----
+Home of my XR experiment(s), made with [A-Frame](https://github.com/aframevr/aframe/)
 
-The future home of my XR experimentation, made with [A-Frame](https://github.com/aframevr/aframe/)
+A-Frame `components` used:
 
-The A-Frame `components` ([entity-component system](https://aframe.io/docs/1.4.0/introduction/entity-component-system.html)) used in my XR experience are:
-
-- [aframe-environment-component](https://github.com/supermedium/aframe-environment-component) by supermedium
+- [aframe-extras](https://github.com/c-frame/aframe-extras) by C-Frame - _'community maintained A-Frame components'_
