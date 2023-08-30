@@ -13,6 +13,6 @@
       ]
     }
   },
-  "files": ["src/frontend/scripts/main.ts"],
+  "include": ["src/scripts/*"],
   "lib": ["es2015"]
 }

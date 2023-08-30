@@ -3,8 +3,7 @@ server.log
 .env
 sslcert
 node_modules
-frontend/**/*.js
-frontend/**/*.css
+frontend
 
 ## npm
 package-lock.json
@@ -12,6 +11,6 @@ package-lock.json
 ## By running 'npm fix'
 .gitignore
 .prettierignore
-frontend/images/
+src/images/
 LICENSE
 template.env

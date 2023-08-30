@@ -9,7 +9,7 @@ const express = require('express'),
   helmet = require('helmet'),
   compression = require('compression'),
   subdomain = require('express-subdomain'),
-  xr_subdomain = require('./subdomains/xr/xr');
+  xr_subdomain = require('./subdomains/xr');
 
 const app = express(); // Create the express app
 

@@ -3,7 +3,8 @@
   "version": "0.2.0",
   "main": "backend/server.js",
   "scripts": {
-    "build": "node esbuild.mjs",
+    "build": "node esbuild.mjs && npm run copy",
+    "copy": "cp -r src/images frontend/images && find src -name *.html | xargs -I {} cp {} frontend/",
     "lint": "eslint . --ext .ts",
     "pretty": "prettier --check .",
     "fix": "prettier --write \"**/*\"",
