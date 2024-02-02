@@ -1,15 +1,14 @@
 //--------------------------------------//
 //     IMPORTING REQUIRED PACKAGES      //
 //--------------------------------------//
-require('dotenv').config(); // Load environment variables from the .env file
 const express = require('express'),
-  path = require('path'),
-  https = require('https'),
-  fs = require('fs'),
-  helmet = require('helmet'),
-  compression = require('compression'),
-  subdomain = require('express-subdomain'),
-  xr_subdomain = require('./subdomains/xr');
+      path = require('path'),
+      https = require('https'),
+      fs = require('fs'),
+      helmet = require('helmet'),
+      compression = require('compression'),
+      subdomain = require('express-subdomain'),
+      xr_subdomain = require('./subdomains/xr');
 
 const app = express(); // Create the express app
 
@@ -49,8 +48,8 @@ app.get('*', (req, res) => {
 //--------------------------------------//
 const credentials = {
   // SSL certificate
-  key: fs.readFileSync(process.env.SSL_PRIVATE_KEY),
-  cert: fs.readFileSync(process.env.SSL_CERT),
+  key: process.env.SSL_PRIVATE_KEY,
+  cert: process.env.SSL_CERT,
 };
 
 const server = https.createServer(credentials, app);
