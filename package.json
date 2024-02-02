@@ -5,8 +5,8 @@
   "scripts": {
     "build": "bun build src/* --outdir ./frontend/scripts/",
     "types": "tsc --noEmit",
-    "prod": "npm run build && pm2 start ecosystem.config.js",
-    "dev": "npm run build && pm2-dev backend/server.js"
+    "prod": "bun run build && bun run backend/server.js",
+    "dev": "bun run build && bun run --watch backend/server.js"
   },
   "author": "Ryan Waugh",
   "license": "MIT",
