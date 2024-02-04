@@ -2,4 +2,4 @@ server.log
 .env
 sslcert
 node_modules
-frontend
+frontend/scripts/**

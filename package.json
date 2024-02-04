@@ -1,35 +1,25 @@
 {
   "name": "ryanwaugh.dev",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "backend/server.js",
   "scripts": {
-    "build": "node esbuild.mjs && npm run copy",
-    "copy": "cp -r src/images frontend/images && find src -name *.html | xargs -I {} cp {} frontend/",
-    "lint": "eslint . --ext .ts",
-    "pretty": "prettier --check .",
-    "fix": "prettier --write \"**/*\"",
+    "build": "bun build src/* --outdir ./frontend/scripts/",
     "types": "tsc --noEmit",
-    "prod": "npm run build && pm2 start ecosystem.config.js",
-    "dev": "npm run build && pm2-dev backend/server.js"
+    "prod": "bun run build && bun run backend/server.js",
+    "dev": "bun run build && bun run --watch backend/server.js"
   },
   "author": "Ryan Waugh",
   "license": "MIT",
   "dependencies": {
     "compression": "^1.7.4",
-    "dotenv": "^16.3.1",
-    "esbuild": "0.18.12",
     "express": "^4.18.2",
-    "express-subdomain": "^1.0.5",
-    "helmet": "^7.0.0",
-    "three": "^0.154.0"
+    "express-subdomain": "^1.0.6",
+    "helmet": "^7.1.0",
+    "three": "^0.161.0"
   },
   "devDependencies": {
-    "@types/aframe": "^1.2.2",
-    "@types/three": "^0.154.0",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
-    "eslint": "^8.45.0",
-    "prettier": "3.0.0",
-    "typescript": "^5.1.6"
+    "@types/aframe": "^1.2.5",
+    "@types/three": "^0.161.2",
+    "typescript": "^5.3.3"
   }
 }
