@@ -15,7 +15,7 @@ const app = express(); // Create the express app
 //--------------------------------------//
 //       SETTING UP SOME MIDDLEWARE     //
 //--------------------------------------//
-app.use(compression()); // Compress certain response bodies using gzip (makes site load quicker)
+app.use(compression()); // Compress certain response bodies using gzip
 app.use(express.json()); // Allows express to recognize incoming request objects as JSON objects
 app.use(express.urlencoded({ extended: true })); // Allows express to recognize incoming request objects as strings or arrays
 app.use(
@@ -31,6 +31,7 @@ app.use(
 //               ROUTING                //
 //--------------------------------------//
 app.use(subdomain('xr', xr_subdomain));
+
 // Deliver everything in the /frontend folder as a static file
 app.use(express.static(path.join(__dirname, '../frontend')));
 
@@ -47,15 +48,14 @@ app.get('*', (req, res) => {
 //        STARTING THE SERVER           //
 //--------------------------------------//
 const credentials = {
-  // SSL certificate
-  key: process.env.SSL_PRIVATE_KEY,
-  cert: process.env.SSL_CERT,
+  key: fs.readFileSync(process.env.SSL_PRIVATE_KEY),
+  cert: fs.readFileSync(process.env.SSL_CERT),
 };
 
 const server = https.createServer(credentials, app);
-const port = 443;
 
 // Listen on a specific port
+const port = 443;
 server.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });

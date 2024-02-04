@@ -3,10 +3,11 @@
   "version": "0.2.1",
   "main": "backend/server.js",
   "scripts": {
-    "build": "bun build src/* --outdir ./frontend/scripts/",
+    "build": "bun build ./src/* --outdir ./frontend/scripts/ --minify",
+    "build-dev": "bun build ./src/* --outdir ./frontend/scripts/ --watch",
     "types": "tsc --noEmit",
     "prod": "bun run build && bun run backend/server.js",
-    "dev": "bun run build && bun run --watch backend/server.js"
+    "dev": "bun run backend/server.js --watch"
   },
   "author": "Ryan Waugh",
   "license": "MIT",

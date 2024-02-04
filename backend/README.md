@@ -1,8 +1,8 @@
-# Installation / Running Locally
+# Installation & Running
 
-Copy `template.env` to `.env` in the root directory of this repo, appending the path of each SSL key to the corresponding `SSL_PRIVATE_KEY` and `SSL_CERT` variables:
+Create a `.env` file in the root directory of this repo:
 
 ```bash
-SSL_PRIVATE_KEY=<path/to/your/private_key> # ex: 'sslcert/private.key.pem'
-SSL_CERT=<path/to/your/domain_key> # ex: 'sslcert/domain.cert.pem'
+SSL_PRIVATE_KEY=<path/to/key> # ex: 'certs/private.key.pem'
+SSL_CERT=<path/to/cert> # ex: 'certs/domain.cert.pem'
 ```
