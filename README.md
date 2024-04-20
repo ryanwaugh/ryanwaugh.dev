@@ -18,3 +18,14 @@ A-Frame `components` used:
   - aframe-extras `hand-controls` addon allows for Quest 2 controller support (& _touch-to-move_ on mobile)
 
 ![](https://raw.githubusercontent.com/ryanwaugh/public/main/ryanwaugh.dev/xr_page_capture.png)
+
+## Requirements
+- Bun v1.1.3
+
+## Installation
+Create a `.env` file in the root of the repository with the following contents:
+
+```bash
+SSL_PRIVATE_KEY=<path/to/key> # ex: 'certs/private.key.pem'
+SSL_CERT=<path/to/cert> # ex: 'certs/domain.cert.pem'
+```
