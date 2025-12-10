@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>VR Mini Golf</title>
+    <meta name="description" content="A-Frame Mini Golf">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.7.1/dist/aframe-v1.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.3/dist/aframe-physics-system.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;">
+    <a-assets>
+      <a-asset-item id="clubModel" src="../models/mini_putt.glb"></a-asset-item>
+    </a-assets>
+    <a-entity environment="preset: forest; playArea: 5"></a-entity>
+    <a-entity id="player"
+              movement-controls>
+      <!-- Hands -->
+      <a-entity id="leftHand" hand-controls="hand: left"></a-entity>
+      <a-entity id="rightHand" hand-controls="hand: right"></a-entity>
+      <!-- Camera -->
+      <a-camera position="0 1.6 0" look-controls="pointerLockEnabled: true"></a-camera>
+    </a-entity>
+
+    <!-- Golf Club -->
+    <a-entity id="club" ammo-body="type: kinematic; mass 1" ammo-shape="type: hull" gltf-model="#clubModel" scale="0.25 0.25 0.25"></a-entity>
+    <!-- Golf Ball -->
+    <a-sphere id="ball" position="0 2 0" radius="0.05" ammo-body="type: dynamic; mass 0.01" ammo-shape="type: sphere"></a-sphere>
+
+    <!-- Left Side -->
+    <a-box position="-2 0.2 0" width="0.2" height="0.2" depth="20" color="#17521b" ammo-body="type: static" ammo-shape="type: box"></a-box>
+    <!-- Right Side -->
+    <a-box position="2 0.2 0" width="0.2" height="0.2" depth="20" color="#17521b" ammo-body="type: static" ammo-shape="type: box"></a-box>
+    <!-- Bottom -->
+    <a-box position="0 0.1 0" width="4" height="0.2" depth="20" color="#17521b" ammo-body="type: static" ammo-shape="type: box"></a-box>
+    <!-- End Cap-->
+    <a-box position="0 0.2 10" rotation="0 90 0" width="0.2" height="0.2" depth="4" color="#17521b" ammo-body="type: static" ammo-shape="type: box"></a-box>
+    <!-- Start Cap-->
+    <a-box position="0 0.2 -10" rotation="0 90 0" width="0.2" height="0.2" depth="4" color="#17521b" ammo-body="type: static" ammo-shape="type: box"></a-box>
+  </a-scene>
+  <script>
+    AFRAME.registerComponent('sync-club-to-hand', {
+      init: function () {
+        this.offsetQuat = new THREE.Quaternion()
+          .setFromEuler(new THREE.Euler(
+            THREE.MathUtils.degToRad(100),
+            THREE.MathUtils.degToRad(180),
+            THREE.MathUtils.degToRad(270)
+          ));
+        
+        this.offsetPos = new THREE.Vector3(0, -0.05, -0.26);
+      },
+      tick: function () {
+        // every frame, move the kinematic club to the hand's position
+        const hand = this.el.sceneEl.querySelector('#rightHand');
+        if (!hand) { return; }
+        // get world position and rotation of hand
+        const handWorldPos = new THREE.Vector3();
+        const handWorldQuat = new THREE.Quaternion();
+        hand.object3D.getWorldPosition(handWorldPos);
+        hand.object3D.getWorldQuaternion(handWorldQuat);
+
+        // set club's world transform
+        const clubQuat = handWorldQuat.clone().multiply(this.offsetQuat)
+        const clubPos = handWorldPos.clone()
+
+        this.el.object3D.position.copy(clubPos);
+        this.el.object3D.quaternion.copy(clubQuat);
+        
+        // sync physics body to the new transform
+        this.el.components['ammo-body'].syncToPhysics();
+      }
+    });
+
+    // Attach this component to the club entity
+    document.addEventListener('DOMContentLoaded', function () {
+      var clubEl = document.querySelector('#club');
+      clubEl.setAttribute('sync-club-to-hand', '');
+    });
+  </script>
+</html>
